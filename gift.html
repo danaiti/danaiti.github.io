@@ -51,12 +51,12 @@ firebase.initializeApp(firebaseConfig);
 	"Time" : time
       };
 
-     var newPostKey = firebase.database().ref().push().key;
+     var newPostKey = firebase.database().ref().child('GiftList').push().key
 
      var updates = {};
-     updates['/' + newPostKey] = postData;
+     updates['/GiftList/' + newPostKey] = postData;
 
-     let result = firebase.database().ref().child("GiftList").update(updates);
+     let result = firebase.database().ref().update(updates);
 	    return result;
    }
 </script>
