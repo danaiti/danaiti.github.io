@@ -50,11 +50,11 @@ firebase.initializeApp(firebaseConfig);
 		let index = Math.floor(Math.random() * 101);
 		let gift = 0;
 		if (index == 100 ) {
-	           gift == 3;
+	           gift = 3;
 		} else if (index % 5 == 0) {
-		   gift == 2;
+		   gift = 2;
 		} else {
-		   gift == index % 2;
+		   gift = index % 2;
 		}
 		const today = new Date();
 	      var postData = {
