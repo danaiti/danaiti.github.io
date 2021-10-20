@@ -57,7 +57,10 @@ firebase.initializeApp(firebaseConfig);
 		let giftArr = ['20K', '30K', '50K', '100K'];
 		let index = Math.floor(Math.random() * 101);
 		
-		if(arr.indexOf(sdt) !== -1) return 0;
+		if(arr.indexOf(sdt) !== -1) {
+		   document.getElementById("pres").innerHTML = "Chơi 1 lần thôi nha";
+		   return 0;
+		}
 		let gift = 0;
 		if (index == 100 ) {
 	           gift = 3;
