@@ -48,7 +48,7 @@ firebase.initializeApp(firebaseConfig);
 	let index = Math.floor(Math.random() * 101);
 	let gift = index != 100 ? index % 3 : 4;
 	const today = new Date(Date.now());
-	let time = today.toUTCString();
+	let time = today.toISOString();
       var postData = {
         "Name": ten,
 	"Phone": sdt,
