@@ -42,10 +42,13 @@ firebase.initializeApp(firebaseConfig);
 	let giftArr = ['20K', '30K', '50K', '100K'];
 	let index = Math.floor(Math.random() * 101);
 	let gift = index != 100 ? index % 3 : 4;
+	const today = new Date(Date.now());
+	let time = today.toUTCString();
       var postData = {
         "Name": ten,
 	"Phone": sdt,
-	"Gift" : giftArr[gift]
+	"Gift" : giftArr[gift],
+	"Time" : time
       };
 
      var newPostKey = firebase.database().ref().push().key;
@@ -53,7 +56,7 @@ firebase.initializeApp(firebaseConfig);
      var updates = {};
      updates['/' + newPostKey] = postData;
 
-     return firebase.database().ref().update(updates);
+     return firebase.database().ref().setValue(updates);
    }
 </script>
 </html>
