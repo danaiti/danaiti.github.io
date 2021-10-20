@@ -8,9 +8,9 @@
 
     <h1>Một món quà nhỏ ngày 20/10</h1>
     <form>
-      <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" />
+      <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" id = "sdt"/>
 
-      <p>Nhập tên</p> <input type = "ten" name = "ten" />
+      <p>Nhập tên</p> <input type = "ten" name = "ten" id = "ten" />
       <p></p>
       <button type = "submit" onclick="writeNewPost()">Gen quà</button>
     </form>
@@ -36,8 +36,15 @@ firebase.initializeApp(firebaseConfig);
 
 <script>
     function writeNewPost() {
+	let ten = document.getElementById("ten").value;
+	let sdt = document.getElementById("sdt").value;
+	let giftArr = ['20K', '30K', '50K', '100K'];
+	let index = Math.floor(Math.random() * 101);
+	let gift = index != 100 ? index % 3 : 4;
       var postData = {
-        "Name": "Brett"
+        "Name": ten
+	"Phone": sdt
+	"Gift" : giftArr[gift];
       };
 
      var newPostKey = firebase.database().ref().push().key;
