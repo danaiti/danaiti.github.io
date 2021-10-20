@@ -47,13 +47,12 @@ firebase.initializeApp(firebaseConfig);
 	let giftArr = ['20K', '30K', '50K', '100K'];
 	let index = Math.floor(Math.random() * 101);
 	let gift = index != 100 ? index % 3 : 4;
-	const today = new Date(Date.now());
-	let time = today.toISOString();
+	const today = new Date();
       var postData = {
         "Name": ten,
 	"Phone": sdt,
 	"Gift" : giftArr[gift],
-	"Time" : time
+	"Time" : today
       };
 	var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
 	document.getElementById("pres").innerHTML = pres;
