@@ -51,19 +51,14 @@ firebase.initializeApp(firebaseConfig);
 	"Time" : time
       };
 
-	var ref = firebase.database().ref();
+	var ref = firebase.database().ref('GiftList');
+      	var newPostKey = ref.push().key
 
-	ref.child("GiftList").once("value").then(function(snapshot) {
-   	 var test = snapshot.val(); 
-    	console.log(test);
-	});
-//      var newPostKey = firebase.database().ref().child('GiftList').push().key
+	var updates = {};
+	updates['/' + newPostKey] = postData;
 
-//      var updates = {};
-//      updates['/GiftList/' + newPostKey] = postData;
-
-//      let result = firebase.database().ref().update(updates);
-// 	    return result;
+      	return ref.update(updates);
+	return result;
    }
 </script>
 </html>
