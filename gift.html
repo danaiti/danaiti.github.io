@@ -17,6 +17,7 @@
       <button id="submitPost" type="submit" class="class="btn btn-primary">Submit</button>
 <!--     </form> -->
 	  <p id="pres"></p>
+          <p id="pres2" style = "color: FF0000"></p>
 	  </div>
 	<input type = "hidden" name = "check" id = "check" value = "" />
   </body>
@@ -65,6 +66,7 @@ firebase.initializeApp(firebaseConfig);
 	      };
 		var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
 		document.getElementById("pres").innerHTML = pres;
+	        document.getElementById("pres2").innerHTML = "Chúc bạn 20/10 vui vẻ";
 		document.getElementById("check").value = "true"
 		var ref = firebase.database().ref('GiftList');
 		var newPostKey = ref.push().key;
