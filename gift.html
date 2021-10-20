@@ -7,13 +7,13 @@
   <body>
 
 <!--     <h1>Một món quà nhỏ ngày 20/10</h1> -->
-    <form>
+<!--     <form> -->
       <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" id = "sdt"/>
 
       <p>Nhập tên</p> <input type = "ten" name = "ten" id = "ten" />
       <p></p>
-      <button type = "submit" onclick="writeNewPost()">Gen quà</button>
-    </form>
+      <button id="submitPost" type="submit" class="btn btn-light">Submit</button>
+<!--     </form> -->
 
   </body>
 				       
@@ -36,9 +36,7 @@ firebase.initializeApp(firebaseConfig);
 </script>
 
 <script>
-    function sleep(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-   }
+    document.getElementById("submitPost").addEventListener("click", writeNewPost);
     function writeNewPost() {
 	let ten = document.getElementById("ten").value;
 	let sdt = document.getElementById("sdt").value;
