@@ -56,7 +56,7 @@ firebase.initializeApp(firebaseConfig);
      var updates = {};
      updates['/' + newPostKey] = postData;
 
-     return firebase.database().ref().setValue(updates);
+     return firebase.database().ref().child("GiftList").setValue(updates);
    }
 </script>
 </html>
