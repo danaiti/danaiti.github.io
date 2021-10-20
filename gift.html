@@ -12,13 +12,13 @@
 <!--     <form> -->
       <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" id = "sdt"/>
 
-      <p>Nhập tên</p> <input type = "ten" name = "ten" id = "ten" />
+      <p>Nhập tên</p> <input type = "text" name = "ten" id = "ten" />
       <p></p>
       <button id="submitPost" type="submit" class="class="btn btn-primary">Submit</button>
 <!--     </form> -->
 	  <p id="pres"></p>
 	  </div>
-
+	<input type = "hidden" name = "check" id = "check" />
   </body>
 				       
 <script src="https://www.gstatic.com/firebasejs/5.0.1/firebase.js"></script>
@@ -42,26 +42,32 @@ firebase.initializeApp(firebaseConfig);
 <script>
     document.getElementById("submitPost").addEventListener("click", writeNewPost);
     function writeNewPost() {
-	let ten = document.getElementById("ten").value;
-	let sdt = document.getElementById("sdt").value;
-	let giftArr = ['20K', '30K', '50K', '100K'];
-	let index = Math.floor(Math.random() * 101);
-	let gift = index != 100 ? index % 3 : 4;
-	const today = new Date();
-      var postData = {
-        "Name": ten,
-	"Phone": sdt,
-	"Gift" : giftArr[gift],
-	"Time" : today
-      };
-	var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
-	document.getElementById("pres").innerHTML = pres;
-
-	var ref = firebase.database().ref('GiftList');
-      	var newPostKey = ref.push().key;
-	var updates = {};
-	updates[newPostKey] = postData;
-	ref.update(updates);
+	let check = document.getElementById("check").value;
+	if (check == "true") {
+		let ten = document.getElementById("ten").value;
+		let sdt = document.getElementById("sdt").value;
+		let giftArr = ['20K', '30K', '50K', '100K'];
+		let index = Math.floor(Math.random() * 101);
+		let gift = index != 100 ? index % 3 : 4;
+		const today = new Date();
+	      var postData = {
+		"Name": ten,
+		"Phone": sdt,
+		"Gift" : giftArr[gift],
+		"Time" : today
+	      };
+		var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
+		document.getElementById("pres").innerHTML = pres;
+		document.getElementById("check").value = "true"
+		var ref = firebase.database().ref('GiftList');
+		var newPostKey = ref.push().key;
+		var updates = {};
+		updates[newPostKey] = postData;
+		ref.update(updates);
+	  
+	  else {
+	  document.getElementById("pres").innerHTML = "Chơi 1 lần thôi nha";
+	  }
    }
 </script>
 </html>
