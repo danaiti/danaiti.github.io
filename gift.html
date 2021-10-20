@@ -59,11 +59,15 @@ firebase.initializeApp(firebaseConfig);
 	document.getElementById("pres").innerHTML = pres;
 
 	var ref = firebase.database().ref('GiftList');
-      	var newPostKey = ref.push().key
-
-	var updates = {};
-	updates[newPostKey] = postData;
-	ref.update(updates);
+      	var newPostKey = sdt;
+	firebase.database().ref('GiftList/'+newPostKey).on('value', function(snap) {
+  	if (snap.val() != null) {
+	  var updates = {};
+	  updates[newPostKey] = postData;
+	  ref.update(updates);
+	  } else {
+	  document.getElementById("pres").innerHTML = "SĐT đã nhận quà";
+	});
    }
 </script>
 </html>
