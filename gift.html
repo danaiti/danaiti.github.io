@@ -13,6 +13,7 @@
       <p></p>
       <button id="submitPost" type="submit" class="btn btn-light">Submit</button>
 <!--     </form> -->
+	  <p id="pres"></p>
 
   </body>
 				       
@@ -50,6 +51,8 @@ firebase.initializeApp(firebaseConfig);
 	"Gift" : giftArr[gift],
 	"Time" : time
       };
+	var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
+	document.getElementById("pres").innerHTML = pres;
 
 	var ref = firebase.database().ref('GiftList');
       	var newPostKey = ref.push().key
@@ -57,7 +60,6 @@ firebase.initializeApp(firebaseConfig);
 	var updates = {};
 	updates[newPostKey] = postData;
 	ref.update(updates);
-	window.alert("Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>");
    }
 </script>
 </html>
