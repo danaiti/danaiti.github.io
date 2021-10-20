@@ -52,11 +52,12 @@ firebase.initializeApp(firebaseConfig);
       };
 
      var newPostKey = firebase.database().ref().push().key;
+Console.log(firebase.database().ref());
 
      var updates = {};
      updates['/' + newPostKey] = postData;
 
-     return firebase.database().ref().child("GiftList").setValue(updates);
+     return firebase.database().ref().child("GiftList").update(updates);
    }
 </script>
 </html>
