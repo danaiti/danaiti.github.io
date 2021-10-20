@@ -55,7 +55,7 @@ firebase.initializeApp(firebaseConfig);
       	var newPostKey = ref.push().key
 
 	var updates = {};
-	updates['/'+newPostKey] = postData;
+	updates[newPostKey] = postData;
 
       	return ref.update(updates);
 	return result;
