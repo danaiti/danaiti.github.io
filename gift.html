@@ -42,6 +42,13 @@ firebase.initializeApp(firebaseConfig);
 
 <script>
     document.getElementById("submitPost").addEventListener("click", writeNewPost);
+	let arr
+	window.onload = function()
+	{
+		firebase.database().ref('GiftList').on('value', (snapshot) => {
+			arr = Object.keys(snapshot.val())
+		})
+	};					
     function writeNewPost() {
 	let check = document.getElementById("check").value;
 	if (check != "true") {
@@ -49,6 +56,8 @@ firebase.initializeApp(firebaseConfig);
 		let sdt = document.getElementById("sdt").value;
 		let giftArr = ['20K', '30K', '50K', '100K'];
 		let index = Math.floor(Math.random() * 101);
+		
+		if(arr.indexOf(sdt) !== -1) return 0;
 		let gift = 0;
 		if (index == 100 ) {
 	           gift = 3;
