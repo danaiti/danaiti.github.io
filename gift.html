@@ -42,9 +42,9 @@ firebase.initializeApp(firebaseConfig);
 	let index = Math.floor(Math.random() * 101);
 	let gift = index != 100 ? index % 3 : 4;
       var postData = {
-        "Name": ten
-	"Phone": sdt
-	"Gift" : giftArr[gift];
+        "Name": ten,
+	"Phone": sdt,
+	"Gift" : giftArr[gift]
       };
 
      var newPostKey = firebase.database().ref().push().key;
