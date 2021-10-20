@@ -43,7 +43,7 @@ firebase.initializeApp(firebaseConfig);
     document.getElementById("submitPost").addEventListener("click", writeNewPost);
     function writeNewPost() {
 	let check = document.getElementById("check").value;
-	if (check == "true") {
+	if (check != "true") {
 		let ten = document.getElementById("ten").value;
 		let sdt = document.getElementById("sdt").value;
 		let giftArr = ['20K', '30K', '50K', '100K'];
