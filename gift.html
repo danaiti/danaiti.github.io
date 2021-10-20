@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html>
-<body>
+  <head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
 
-<h1>Một món quà nhỏ ngày 20/10</h1>
+    <h1>Một món quà nhỏ ngày 20/10</h1>
+    <form>
+      <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" />
 
-  <form>
-    <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" />
+      <p>Nhập tên</p> <input type = "ten" name = "ten" />
+      <p></p>
+      <button type = "submit" onclick="writeNewPost()>Gen quà</button>
+    </form>
 
-    <p>Nhập tên</p> <input type = "ten" name = "ten" />
-    <p></p>
-    <button type = "submit">Gen quà</button>
-  </form>
+  </body>
+<script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
 
-</body>
+<script>
+  var config = {
+    apiKey: MYAPIKEY,
+    databaseURL: https://present-95fda-default-rtdb.firebaseio.com/,
+    projectId: present-95fda,
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script>
+    function writeNewPost() {
+      var postData = {
+        "Name": "Brett"
+      };
+
+     var newPostKey = firebase.database().ref().push().key;
+
+     var updates = {};
+     updates['/' + newPostKey] = postData;
+
+     return firebase.database().ref().update(updates);
+   }
+</script>
 </html>
