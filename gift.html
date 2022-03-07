@@ -3,16 +3,48 @@
   <head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	  	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
 			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<style>
+			.container {
+				background-image: url('background.jpg');
+				background-size: cover;
+				background-color: pink;
+				text-align: center;
+    			font-family: Cambria;
+    			height: 900px;
+				padding-top: 200px;
+			}
+
+			h1 {
+				font-family: Edwardian Script ITC;
+				font-weight: 500;
+			}
+			#submitPost {
+				border: none;
+				padding: 10px 30px;
+				border-radius: 10px;
+				background-color: pink;
+				font-weight: 700;
+				margin-top: 25px;
+			}
+
+			input {
+				border: none;
+    			border-radius: 10px;
+			}
+		</style>
   </head>
   <body>
-	  <div class="container">
-     <h1>Một món quà nhỏ ngày 20/10</h1>
+	<div class="container">
+     <h1>Happy International Women's Day</h1>
 <!--     <form> -->
-      <p>Nhập số điện thoại</p> <input type = "text" name ="sdt" id = "sdt"/>
 
-      <p>Nhập tên</p> <input type = "text" name = "ten" id = "ten" />
+      <p style="margin-top: 20px; margin-bottom: 5px;">Nhập tên</p> 
+	  <input type = "text" name = "ten" id = "ten" />
+
+	  <p style="margin-top: 20px; margin-bottom: 5px;">Nhập số điện thoại</p> 
+	  <input type = "text" name ="sdt" id = "sdt"/>
       <p></p>
       <button id="submitPost" type="submit" class="class="btn btn-primary">Submit</button>
 <!--     </form> -->
@@ -78,10 +110,10 @@ firebase.initializeApp(firebaseConfig);
 	      };
 		var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
 		document.getElementById("pres").innerHTML = pres;
-	        document.getElementById("pres2").innerHTML = "Chúc bạn 20/10 vui vẻ";
+	        document.getElementById("pres2").innerHTML = "Chúc bạn 8/3 vui vẻ";
 		document.getElementById("check").value = "true"
 		var ref = firebase.database().ref('GiftList');
-<!-- 		var newPostKey = ref.push().key; -->
+ 		var newPostKey = ref.push().key;
 	  	var newPostKey = sdt;
 		var updates = {};
 		updates[newPostKey] = postData;
@@ -93,3 +125,4 @@ firebase.initializeApp(firebaseConfig);
    }
 </script>
 </html>
+
