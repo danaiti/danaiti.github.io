@@ -108,9 +108,9 @@ firebase.initializeApp(firebaseConfig);
 		"Gift" : giftArr[gift],
 		"Time" : today
 	      };
-		var pres = "Chúc mừng bạn nhận được thẻ <b>" + giftArr[gift] + "</b>";
+		var pres = "Chúc mừng " + ten + " nhận được thẻ <b>" + giftArr[gift] + "</b>";
 		document.getElementById("pres").innerHTML = pres;
-	        document.getElementById("pres2").innerHTML = "Chúc bạn 8/3 vui vẻ";
+	        document.getElementById("pres2").innerHTML = "Chúc "+ + ten + " 8/3 vui vẻ";
 		document.getElementById("check").value = "true"
 		var ref = firebase.database().ref('GiftList');
  		var newPostKey = ref.push().key;
