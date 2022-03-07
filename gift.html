@@ -88,7 +88,8 @@ firebase.initializeApp(firebaseConfig);
 		let sdt = document.getElementById("sdt").value;
 		
 		if (ten == '' || sdt = '' || sdt.length != 10) {
-		   document.getElementById("pres").innerHTML = "Bạn phải nhập tên và số điện thoại hợp hệ."
+		   document.getElementById("pres").innerHTML = "Bạn phải nhập tên và số điện thoại hợp hệ.";
+		   return 0;										   
 		}
 						       
 		let giftArr = ['20K', '30K', '50K', '100K'];
