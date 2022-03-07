@@ -86,6 +86,11 @@ firebase.initializeApp(firebaseConfig);
 	if (check != "true") {
 		let ten = document.getElementById("ten").value;
 		let sdt = document.getElementById("sdt").value;
+		
+		if (ten == '' || sdt = '' || sdt.length != 10) {
+		   document.getElementById("pres").innerHTML = "Bạn phải nhập tên và số điện thoại hợp hệ."
+		}
+						       
 		let giftArr = ['20K', '30K', '50K', '100K'];
 		let index = Math.floor(Math.random() * 101);
 		
