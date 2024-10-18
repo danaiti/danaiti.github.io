@@ -128,7 +128,7 @@ firebase.initializeApp(firebaseConfig);
 	      };
 		var pres = "Chúc mừng <b>" + ten + "</b> nhận được <b>" + giftArr[gift] + "</b>";
 		document.getElementById("pres").innerHTML = pres;
-	        document.getElementById("pres2").innerHTML = "Chúc bạn 20 vui vẻ";
+	        document.getElementById("pres2").innerHTML = "Chúc bạn 20/10 vui vẻ";
 		document.getElementById("check").value = "true"
 		var ref = firebase.database().ref('GiftList');
  		var newPostKey = ref.push().key;
