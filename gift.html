@@ -45,15 +45,17 @@
   </head>
   <body>
 	<div class="container">
-     <h1>Happy International Women's Day</h1>
-     <h2>08/03</h2>
+     <h1>Happy Vietnamese Women's Day</h1>
+     <h2>20/10</h2>
 <!--     <form> -->
 
       <p style="margin-top: 20px; margin-bottom: 5px;">Nhập tên</p> 
 	  <input type = "text" name = "ten" id = "ten" required />
 
-	  <p style="margin-top: 20px; margin-bottom: 5px;">Nhập số điện thoại</p> 
+	  <p style="margin-top: 20px; margin-bottom: 5px;">Nhập số tài khoản</p> 
 	  <input type = "text" name ="sdt" id = "sdt" required />
+          <p style="margin-top: 20px; margin-bottom: 5px;">Nhập Ngân Hàng</p> 
+	  <input type = "text" name ="tnh" id = "tnh" required />
       <p></p>
       <button id="submitPost" type="submit" class="class="btn btn-primary">Nhận quà</button>
 <!--     </form> -->
@@ -95,13 +97,13 @@ firebase.initializeApp(firebaseConfig);
 	if (check != "true") {
 		let ten = document.getElementById("ten").value;
 		let sdt = document.getElementById("sdt").value;
-		
-		if (ten == '' || sdt == '' || sdt.length != 10) {
-		   document.getElementById("pres").innerHTML = "Bạn phải nhập tên và số điện thoại hợp hệ.";
+		let tnh = document.getElementById("tnh").value;
+		if (ten == '' || sdt == '' || tnh == '') {
+		   document.getElementById("pres").innerHTML = "Bạn phải nhập đủ thông tin";
 		   return 0;										   
 		}
 						       
-		let giftArr = ['20K', '30K', '50K', '100K'];
+		let giftArr = ['100K', '50K', '150K', '200K'];
 		let index = Math.floor(Math.random() * 101);
 		
 		if(arr.indexOf(sdt) !== -1) {
@@ -119,13 +121,14 @@ firebase.initializeApp(firebaseConfig);
 		const today = new Date();
 	      var postData = {
 		"Name": ten,
-		"Phone": sdt,
+		"STK": sdt,
+		"NH": tnh,
 		"Gift" : giftArr[gift],
 		"Time" : today
 	      };
-		var pres = "Chúc mừng <b>" + ten + "</b> nhận được thẻ <b>" + giftArr[gift] + "</b>";
+		var pres = "Chúc mừng <b>" + ten + "</b> nhận được <b>" + giftArr[gift] + "</b>";
 		document.getElementById("pres").innerHTML = pres;
-	        document.getElementById("pres2").innerHTML = "Chúc bạn 8/3 vui vẻ";
+	        document.getElementById("pres2").innerHTML = "Chúc bạn 20 vui vẻ";
 		document.getElementById("check").value = "true"
 		var ref = firebase.database().ref('GiftList');
  		var newPostKey = ref.push().key;
