@@ -89,7 +89,7 @@ firebase.initializeApp(firebaseConfig);
 	let arr
 	window.onload = function()
 	{
-		firebase.database().ref('GiftList/20250308').on('value', (snapshot) => {
+		firebase.database().ref('GiftList').on('value', (snapshot) => {
 			arr = Object.keys(snapshot.val())
 		})
 	};					
@@ -131,7 +131,7 @@ firebase.initializeApp(firebaseConfig);
 		document.getElementById("pres").innerHTML = pres;
 	        document.getElementById("pres2").innerHTML = "Chúc bạn 20/10 vui vẻ";
 		document.getElementById("check").value = "true"
-		var ref = firebase.database().ref('GiftList/20250308');
+		var ref = firebase.database().ref('GiftList');
  		var newPostKey = ref.push().key;
 	  	var newPostKey = sdt;
 		var updates = {};
