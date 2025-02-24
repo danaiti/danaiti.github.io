@@ -45,8 +45,8 @@
   </head>
   <body>
 	<div class="container">
-     <h1>Happy Vietnamese Women's Day</h1>
-     <h2>20/10</h2>
+     <h1>Happy International Women's Day</h1>
+     <h2>08/03</h2>
 <!--     <form> -->
 
       <p style="margin-top: 20px; margin-bottom: 5px;">Nhập tên</p> 
@@ -58,6 +58,7 @@
 	  <input type = "text" name ="tnh" id = "tnh" required />
       <p></p>
       <button id="submitPost" type="submit" class="class="btn btn-primary">Nhận quà</button>
+		<p style="margin-top: 20px; margin-bottom: 5px;">Phần quà bao gồm: 83.025, 83.205, 25.803, 250.803 </p> 
 <!--     </form> -->
 	  <p id="pres" style="margin-top: 20px;" ></p>
           <p id="pres2" style = "color: red; font-size: 25px; font-weight: 700;"></p>
@@ -88,7 +89,7 @@ firebase.initializeApp(firebaseConfig);
 	let arr
 	window.onload = function()
 	{
-		firebase.database().ref('GiftList').on('value', (snapshot) => {
+		firebase.database().ref('GiftList/20250308').on('value', (snapshot) => {
 			arr = Object.keys(snapshot.val())
 		})
 	};					
@@ -103,7 +104,7 @@ firebase.initializeApp(firebaseConfig);
 		   return 0;										   
 		}
 						       
-		let giftArr = ['50K', '100K', '150K', '200K'];
+		let giftArr = ['080325 VND', '25380', '080325', '250308 VND'];
 		let index = Math.floor(Math.random() * 101);
 		
 		if(arr.indexOf(sdt) !== -1) {
